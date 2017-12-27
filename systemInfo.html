@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="./clientjs/dist/client.min.js"></script>
 <title>SysInfo</title>
 </head>
@@ -11,9 +10,12 @@
 
 <script type="text/javascript">
 
-	$(function() {
+	window.onload = function() {
 		/*
 			clientJs
+			
+			<script type="text/javascript" src="[js_lib_path]/clientjs/dist/client.min.js"></script>
+			引用dist/client.min.js或src/client.js
 		*/
 		var clientJs = new ClientJS();
 		//console.log(clientJs);
@@ -23,17 +25,21 @@
 		clientJs.getCurrentResolution();//螢幕解析度
 		document.write('螢幕解析度:'+clientJs.getCurrentResolution()+'<br/>');
 		//--------------------
-		clientJs.getBrowserData();//瀏覽器詳細資料
-		clientJs.getBrowser();//瀏覽器名稱
-		clientJs.getBrowserMajorVersion();//主要版號
-		clientJs.getBrowserVersion();//完整版號
-		clientJs.getDevice();
-		clientJs.getDeviceType();
-		clientJs.getDeviceVendor();
+		clientJs.getBrowserData();//瀏覽器詳細資料 ex {browser:Chrome, version:56.0.2934, ... }
+ 		clientJs.getBrowser();//瀏覽器名稱 ex Chrome
+		clientJs.getBrowserMajorVersion();//主要版號 ex 56
+		clientJs.getBrowserVersion();//完整版號 ex 56.0.2924
+		clientJs.getDevice();// 裝置 ex SM-C900Y
+		clientJs.getDeviceType();// 裝置類型 ex mobile
+		clientJs.getDeviceVendor();//裝置廠牌 ex Samsung
 		clientJs.getEngine();
 		clientJs.getEngineVersion();
 		document.write('使用瀏覽器:'+clientJs.getBrowser()+' '+clientJs.getBrowserVersion()+'<br/>');
-		document.write('使用裝置:'+clientJs.getDevice()+' '+clientJs.getDeviceType()+' '+clientJs.getDeviceVendor()+'<br/>');
+		
+		//非行動裝置時device內容會是undefined
+		if(clientJs.isMobile()) {
+			document.write('使用裝置:'+clientJs.getDeviceVendor()+' '+clientJs.getDeviceType()+' '+clientJs.getDevice()+'<br/>');
+		}
 		//---------------------
 		clientJs.getCPU();
 		clientJs.getOS();

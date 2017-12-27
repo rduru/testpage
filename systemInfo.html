@@ -29,7 +29,7 @@
 		txt += "<p>Browser Online: " + navigator.onLine + "</p>";
 		txt += "<p>Platform: " + navigator.platform + "</p>";
 		txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
-		document.write(txt);
+		document.write(navigator.vendor);
 		
         document.write("裝置代號(Unique Key)"+" : "+ client["getFingerprint"]()+'<br/>');
         //document.write("getCustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');

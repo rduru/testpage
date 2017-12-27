@@ -20,20 +20,11 @@
 		console.log(client);
 		
 		console.log(navigator);
-		var txt = "";
-		txt += "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
-		txt += "<p>Browser Name: " + navigator.appName + "</p>";
-		txt += "<p>Browser Version: " + navigator.appVersion + "</p>";
-		txt += "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
-		txt += "<p>Browser Language: " + navigator.language + "</p>";
-		txt += "<p>Browser Online: " + navigator.onLine + "</p>";
-		txt += "<p>Platform: " + navigator.platform + "</p>";
-		txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
-		document.write(navigator.vendor);
 		
         document.write("裝置代號(Unique Key)"+" : "+ client["getFingerprint"]()+'<br/>');
         //document.write("getCustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');
         document.write("使用者裝置資訊"+" : "+ client["getUserAgent"]()+'<br/>');
+        document.write("畫面尺寸"+" : "+ client["getCurrentResolution"]()+'<br/>');
         document.write("使用瀏覽器"+" : "+ client["getBrowser"]()+"/"+client["getBrowserVersion"]()+'<br/>');
 		/*
         document.write("isIE"+" : "+ client["isIE"]()+'<br/>');
@@ -56,8 +47,35 @@
         document.write("getCPU"+" : "+ client["getCPU"]()+'<br/>');
 		*/
 		
-        document.write("是否為行動裝置"+" : "+ (client["isMobile"]()?"是":"否")+'<br/>');
+        document.write("是否為行動裝置"+" : "+ (client["isMobile"]()?"是，裝置類型 : ":"否"+'<br/>'));
 		
+		if(client["isMobile"]()) {
+			if(client["isMobileMajor"]()) {
+			}
+			if(client["isMobileAndroid"]()) {
+				document.write("Android"+'<br/>');
+			}
+			if(client["isMobileOpera"]()) {
+				document.write("Opera"+'<br/>');
+			}
+			if(client["isMobileWindows"]()) {
+				document.write("Windows"+'<br/>');
+			}
+			if(client["isMobileBlackBerry"]()) {
+				document.write("BlackBerry"+'<br/>');
+			}
+			if(client["isMobileIOS"]()) {
+				if(client["isIphone"]()) {
+					document.write("Iphone"+'<br/>');
+				}
+				if(client["isIpad"]()) {
+					document.write("Ipad"+'<br/>');
+				}
+				if(client["isIpod"]()) {
+					document.write("Ipod"+'<br/>');
+				}
+			}
+		}
 		/*
         document.write("isMobileMajor"+" : "+ client["isMobileMajor"]()+'<br/>');
         document.write("isMobileAndroid"+" : "+ client["isMobileAndroid"]()+'<br/>');
@@ -70,7 +88,6 @@
         document.write("isIpod"+" : "+ client["isIpod"]()+'<br/>');
 		*/
 		
-        document.write("畫面尺寸"+" : "+ client["getCurrentResolution"]()+'<br/>');
         //document.write("getAvailableResolution"+" : "+ client["getAvailableResolution"]()+'<br/>');
         //document.write("getDeviceXDPI"+" : "+ client["getDeviceXDPI"]()+'<br/>');
         //document.write("getDeviceYDPI"+" : "+ client["getDeviceYDPI"]()+'<br/>');

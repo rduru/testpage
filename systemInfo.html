@@ -3,105 +3,75 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="client.min.js"></script>
+<script type="text/javascript" src="./clientjs/dist/client.min.js"></script>
 <title>SysInfo</title>
 </head>
 <body>
-
-	
-
 </body>
 
 <script type="text/javascript">
 
 	$(function() {
-		var client = new ClientJS();
-		
-		console.log(client);
-		
-		console.log(navigator);
-		
-        document.write("Fingerprint"+" : "+ client["getFingerprint"]()+'<br/>');
-        document.write("CustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');
-        document.write("使用者裝置資訊"+" : "+ client["getUserAgent"]()+'<br/>');
-        document.write("作業系統"+" : "+ client["getOS"]()+'<br/>');
-        document.write("畫面尺寸"+" : "+ client["getCurrentResolution"]()+'<br/>');
-        document.write("使用瀏覽器"+" : "+ client["getBrowser"]()+"/"+client["getBrowserVersion"]()+'<br/>');
 		/*
-        document.write("isIE"+" : "+ client["isIE"]()+'<br/>');
-        document.write("isChrome"+" : "+ client["isChrome"]()+'<br/>');
-        document.write("isFirefox "+" : "+ client["isFirefox"]()+'<br/>');
-        document.write("isSafari"+" : "+ client["isSafari"]()+'<br/>');
-        document.write("isMobileSafari"+" : "+ client["isMobileSafari"]()+'<br/>');
-        document.write("isOpera"+" : "+ client["isOpera"]()+'<br/>');
-        document.write("getOS"+" : "+ client["getOS"]()+'<br/>');
-        document.write("isWindows"+" : "+ client["isWindows"]()+'<br/>');
-        document.write("isMac"+" : "+ client["isMac"]()+'<br/>');
-        document.write("isLinux"+" : "+ client["isLinux"]()+'<br/>');
-        document.write("isUbuntu"+" : "+ client["isUbuntu"]()+'<br/>');
-        document.write("isSolaris"+" : "+ client["isSolaris"]()+'<br/>');
+			clientJs
 		*/
+		var clientJs = new ClientJS();
+		//console.log(clientJs);
 		
-        document.write("getEngine"+" : "+ client["getEngine"]()+'<br/>');
-        document.write("getEngineVersion"+" : "+ client["getEngineVersion"]()+'<br/>');
-        document.write("getDevice"+" : "+ client["getDevice"]()+'<br/>');
-        document.write("getDeviceType"+" : "+ client["getDeviceType"]()+'<br/>');
-        document.write("getCPU"+" : "+ client["getCPU"]()+'<br/>');
-		
-		
-        document.write("是否為行動裝置"+" : "+ (client["isMobile"]()?"是，裝置類型 : ":"否"+'<br/>'));
-		
-		if(client["isMobile"]()) {
-			if(client["isMobileMajor"]()) {
-			}
-			if(client["isMobileAndroid"]()) {
-				document.write("Android"+'<br/>');
-			}
-			if(client["isMobileOpera"]()) {
-				document.write("Opera"+'<br/>');
-			}
-			if(client["isMobileWindows"]()) {
-				document.write("Windows"+'<br/>');
-			}
-			if(client["isMobileBlackBerry"]()) {
-				document.write("BlackBerry"+'<br/>');
-			}
-			if(client["isMobileIOS"]()) {
-				if(client["isIphone"]()) {
-					document.write("Iphone"+'<br/>');
-				}
-				if(client["isIpad"]()) {
-					document.write("Ipad"+'<br/>');
-				}
-				if(client["isIpod"]()) {
-					document.write("Ipod"+'<br/>');
-				}
-			}
-		}
-		/*
-        document.write("isMobileMajor"+" : "+ client["isMobileMajor"]()+'<br/>');
-        document.write("isMobileAndroid"+" : "+ client["isMobileAndroid"]()+'<br/>');
-        document.write("isMobileOpera"+" : "+ client["isMobileOpera"]()+'<br/>');
-        document.write("isMobileWindows"+" : "+ client["isMobileWindows"]()+'<br/>');
-        document.write("isMobileBlackBerry"+" : "+ client["isMobileBlackBerry"]()+'<br/>');
-        document.write("isMobileIOS"+" : "+ client["isMobileIOS"]()+'<br/>');
-        document.write("isIphone"+" : "+ client["isIphone"]()+'<br/>');
-        document.write("isIpad"+" : "+ client["isIpad"]()+'<br/>');
-        document.write("isIpod"+" : "+ client["isIpod"]()+'<br/>');
-		*/
-		
-        //document.write("getAvailableResolution"+" : "+ client["getAvailableResolution"]()+'<br/>');
-        //document.write("getDeviceXDPI"+" : "+ client["getDeviceXDPI"]()+'<br/>');
-        //document.write("getDeviceYDPI"+" : "+ client["getDeviceYDPI"]()+'<br/>');
-		
-		/*
-        document.write("isJava"+" : "+ client["isJava"]()+'<br/>');
-        document.write("getJavaVersion"+" : "+ client["getJavaVersion"]()+'<br/>');
-        document.write("isFlash"+" : "+ client["isFlash"]()+'<br/>');
-        document.write("getFlashVersion"+" : "+ client["getFlashVersion"]()+'<br/>');
-        document.write("isSilverlight"+" : "+ client["isSilverlight"]()+'<br/>');
-        document.write("getSilverlightVersion"+" : "+ client["getSilverlightVersion"]()+'<br/>');
-		*/
+		//get方法
+		clientJs.getAvailableResolution();//螢幕解析度(可用的顯示空間, 以電腦桌面為例如果沒有自動隱藏工具列, 這裡取到的大小並不包含工具列所占用的部分)
+		clientJs.getCurrentResolution();//螢幕解析度
+		document.write('螢幕解析度:'+clientJs.getCurrentResolution()+'<br/>');
+		//--------------------
+		clientJs.getBrowserData();//瀏覽器詳細資料
+		clientJs.getBrowser();//瀏覽器名稱
+		clientJs.getBrowserMajorVersion();//主要版號
+		clientJs.getBrowserVersion();//完整版號
+		clientJs.getDevice();
+		clientJs.getDeviceType();
+		clientJs.getDeviceVendor();
+		clientJs.getEngine();
+		clientJs.getEngineVersion();
+		document.write('使用瀏覽器:'+clientJs.getBrowser()+' '+clientJs.getBrowserVersion()+'<br/>');
+		document.write('使用裝置:'+clientJs.getDevice()+' '+clientJs.getDeviceType()+' '+clientJs.getDeviceVendor()+'<br/>');
+		//---------------------
+		clientJs.getCPU();
+		clientJs.getOS();
+		clientJs.getOSVersion();
+		document.write('作業系統:'+clientJs.getOS()+' '+clientJs.getOSVersion()+'<br/>');
+		//---------------------------
+		clientJs.getUserAgent();
+		document.write('完整資訊:'+clientJs.getUserAgent()+'<br/>');
+
+		//is方法
+		//瀏覽器的判斷 true/false
+		clientJs.isChrome();
+		clientJs.isFirefox();
+		clientJs.isIE();
+		clientJs.isOpera();
+		clientJs.isSafari();
+		clientJs.isSilverlight();
+		//-----------------
+		//IOS裝置的判斷 true/false
+		clientJs.isIpad();
+		clientJs.isIphone();
+		clientJs.isIpod();
+		//-----------------
+		//行動裝置的判斷 true/false
+		clientJs.isMobile();
+		clientJs.isMobileAndroid();
+		clientJs.isMobileBlackBerry();
+		clientJs.isMobileIOS();
+		clientJs.isMobileMajor();
+		clientJs.isMobileOpera();
+		clientJs.isMobileSafari();
+		clientJs.isMobileWindows();
+		//---------------------
+		//OS的判斷 true/false
+		clientJs.isSolaris();
+		clientJs.isUbuntu();
+		clientJs.isWindows();
+		clientJs.isMac();		
 	});
 </script>
 </html>

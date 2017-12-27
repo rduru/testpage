@@ -12,6 +12,18 @@
 <script type="text/javascript">
 
 	$(function() {
+		var client = new ClientJS();
+		
+		console.log(client);
+		
+		console.log(navigator);
+		
+        document.write("Fingerprint"+" : "+ client["getFingerprint"]()+'<br/>');
+        document.write("CustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');
+        document.write("使用者裝置資訊"+" : "+ client["getUserAgent"]()+'<br/>');
+        document.write("作業系統"+" : "+ client["getOS"]()+'<br/>');
+        document.write("畫面尺寸"+" : "+ client["getCurrentResolution"]()+'<br/>');
+        document.write("使用瀏覽器"+" : "+ client["getBrowser"]()+"/"+client["getBrowserVersion"]()+'<br/>');
 		/*
 			clientJs
 		*/

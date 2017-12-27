@@ -17,11 +17,11 @@
 	$(function() {
 		var client = new ClientJS();
 		
-        document.write("getFingerprint"+" : "+ client["getFingerprint"]()+'<br/>');
-        document.write("getCustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');
+        document.write("裝置代號(Unique Key)"+" : "+ client["getFingerprint"]()+'<br/>');
+        //document.write("getCustomFingerprint"+" : "+ client["getCustomFingerprint"]()+'<br/>');
         document.write("getUserAgent"+" : "+ client["getUserAgent"]()+'<br/>');
-        document.write("getBrowser"+" : "+ client["getBrowser"]()+'<br/>');
-        document.write("getBrowserVersion"+" : "+ client["getBrowserVersion"]()+'<br/>');
+        document.write("使用瀏覽器"+" : "+ client["getBrowser"]()+"/"+client["getBrowserVersion"]()+'<br/>');
+		/*
         document.write("isIE"+" : "+ client["isIE"]()+'<br/>');
         document.write("isChrome"+" : "+ client["isChrome"]()+'<br/>');
         document.write("isFirefox "+" : "+ client["isFirefox"]()+'<br/>');
@@ -34,10 +34,17 @@
         document.write("isLinux"+" : "+ client["isLinux"]()+'<br/>');
         document.write("isUbuntu"+" : "+ client["isUbuntu"]()+'<br/>');
         document.write("isSolaris"+" : "+ client["isSolaris"]()+'<br/>');
+		*/
+		
+		/*
         document.write("getDevice"+" : "+ client["getDevice"]()+'<br/>');
         document.write("getDeviceType"+" : "+ client["getDeviceType"]()+'<br/>');
         document.write("getCPU"+" : "+ client["getCPU"]()+'<br/>');
-        document.write("isMobile"+" : "+ client["isMobile"]()+'<br/>');
+		*/
+		
+        document.write("是否為行動裝置"+" : "+ (client["isMobile"]()?"是":"否")+'<br/>');
+		
+		/*
         document.write("isMobileMajor"+" : "+ client["isMobileMajor"]()+'<br/>');
         document.write("isMobileAndroid"+" : "+ client["isMobileAndroid"]()+'<br/>');
         document.write("isMobileOpera"+" : "+ client["isMobileOpera"]()+'<br/>');
@@ -47,16 +54,21 @@
         document.write("isIphone"+" : "+ client["isIphone"]()+'<br/>');
         document.write("isIpad"+" : "+ client["isIpad"]()+'<br/>');
         document.write("isIpod"+" : "+ client["isIpod"]()+'<br/>');
-        document.write("getCurrentResolution"+" : "+ client["getCurrentResolution"]()+'<br/>');
-        document.write("getAvailableResolution"+" : "+ client["getAvailableResolution"]()+'<br/>');
-        document.write("getDeviceXDPI"+" : "+ client["getDeviceXDPI"]()+'<br/>');
-        document.write("getDeviceYDPI"+" : "+ client["getDeviceYDPI"]()+'<br/>');
+		*/
+		
+        document.write("畫面尺寸"+" : "+ client["getCurrentResolution"]()+'<br/>');
+        //document.write("getAvailableResolution"+" : "+ client["getAvailableResolution"]()+'<br/>');
+        //document.write("getDeviceXDPI"+" : "+ client["getDeviceXDPI"]()+'<br/>');
+        //document.write("getDeviceYDPI"+" : "+ client["getDeviceYDPI"]()+'<br/>');
+		
+		/*
         document.write("isJava"+" : "+ client["isJava"]()+'<br/>');
         document.write("getJavaVersion"+" : "+ client["getJavaVersion"]()+'<br/>');
         document.write("isFlash"+" : "+ client["isFlash"]()+'<br/>');
         document.write("getFlashVersion"+" : "+ client["getFlashVersion"]()+'<br/>');
         document.write("isSilverlight"+" : "+ client["isSilverlight"]()+'<br/>');
         document.write("getSilverlightVersion"+" : "+ client["getSilverlightVersion"]()+'<br/>');
+		*/
 	});
 </script>
 </html>
